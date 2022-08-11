@@ -1,0 +1,30 @@
+apply plugin: 'java'
+
+group = 'uk.ac.ic.doc'
+version = '1.0.0'
+
+description = """Simulation Exercises"""
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(16))
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.testng:testng:7.1.0'
+    testImplementation group: 'junit', name: 'junit', version:'4.13'
+    implementation group: 'org.jfree', name: 'jfreechart', version: '1.0.19'
+    implementation group: 'org.jfree', name: 'jcommon', version: '1.0.23'
+    implementation group: 'gov.nist.math.jama', name: 'gov.nist.math.jama', version: '1.1.1'
+    implementation(files('lib/sim-network.jar'))
+    implementation(files('lib/sim-tools.jar'))
+}

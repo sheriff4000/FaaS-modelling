@@ -48,7 +48,7 @@ public class ParallelServers extends Sim {
 // args[1] = server 1 rate, \mu_1
 // args[2] = server 2 rate, \mu_2
 //
-  public static void main(String args[]) {
+  public static void main(String[] args) {
     int n = Integer.parseInt(args[0]);
     double mu1 = Double.parseDouble(args[1]);
     double mu2 = Double.parseDouble(args[2]);

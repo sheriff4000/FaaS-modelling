@@ -1,4 +1,6 @@
-package examples;
+package mywork;
+
+import examples.CTMCSolver;
 
 // A template for using the CTMC solver provided
 public class CTMCSolveTemplate {

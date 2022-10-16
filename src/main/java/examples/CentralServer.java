@@ -4,17 +4,13 @@ import network.*;
 import tools.*;
 
 public class CentralServer extends Sim {
-    double lambda;
-
-// 
-// Calculates the mean pop on arrival and mean residual s.t.
-// For U(0, 0.01) this is 10^-4/(3*2*0.005) = 0.003333, i.e.
-// E(S^2)/(2E(S))
+    double lambda, runTime;
 
     // Simulates the central server system (CPU and two disks) using
     // the (fixed) parameterisation given in the notes.
-    public CentralServer(double lambda) {
+    public CentralServer(double lambda, double runTime) {
         this.lambda = lambda;
+        this.runTime = runTime;
     }
 
     void runSim() {
@@ -46,14 +42,14 @@ public class CentralServer extends Sim {
     }
 
     public boolean stop() {
-        return now() > 15000;
+        return now() > runTime;
     }
 
-    public static void main(String args[]) {
-        new CentralServer(Double.parseDouble(args[0])).runSim();
+    public static void main(String[] args) {
+        new CentralServer(Double.parseDouble(args[0]),
+                          Double.parseDouble(args[1])).runSim();
         Network.displayResults();
     }
-
 }
 
 

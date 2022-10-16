@@ -67,15 +67,14 @@ class MM1Sim extends Sim {
         arrivalEvent = new Arrival(now() + Samplers.exp(lambda));
         schedule(arrivalEvent);
         simulate();
-        Logger.logResult("Mean population", integral / now());
+        System.out.println("Mean population = " + integral / now());
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         double lambda = Double.parseDouble(args[0]);
         double mu = Double.parseDouble(args[1]);
         double runTime = Double.parseDouble(args[2]);
         new MM1Sim(lambda, mu, runTime).runSim();
-        Logger.displayResults(0.01);
     }
 }
 

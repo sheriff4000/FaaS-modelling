@@ -15,7 +15,7 @@ class MM1CTMC {
     double[] ps;
 
     int nextState(int s) {
-        return (int) samplers[s].next();
+        return samplers[s].next();
     }
 
     // This is the CTMC simulation code...
@@ -78,7 +78,7 @@ class MM1CTMC {
     //
     // Solves the CTMC for a finite-capacity M/M/1 queue
     //
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         MM1CTMC sim = new MM1CTMC(Double.parseDouble(args[0]),
                             Double.parseDouble(args[1]),
                             Integer.parseInt(args[2]),

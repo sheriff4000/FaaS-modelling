@@ -15,7 +15,7 @@ class MM1CSim extends Sim {
     int n = 0;
 
     // Measurement variables
-    double b = 0.0, tb = 0.0, t = 100000;
+    double b = 0.0, tb = 0.0;
 
     public MM1CSim(double lambda, double mu, int capacity, double runTime) {
         this.lambda = lambda;
@@ -66,16 +66,15 @@ class MM1CSim extends Sim {
     void runSim() {
         schedule(new Arrival(now() + Samplers.exp(lambda)));
         simulate();
-        Logger.logResult("Utilisation", b / t);
+        System.out.println("Utilisation = " + b / runTime);
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         double lambda = Double.parseDouble(args[0]);
         double mu = Double.parseDouble(args[1]);
         int capacity = Integer.parseInt(args[2]);
         double runTime = Double.parseDouble(args[3]);
         new MM1CSim(lambda, mu, capacity, runTime).runSim();
-        Logger.displayResults(0.01);
     }
 }
 

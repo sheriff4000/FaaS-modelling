@@ -15,7 +15,7 @@ class MM1CTMC {
     double[] ps;
 
     int nextState(int s) {
-        return samplers[s].next();
+        return (int) samplers[s].next();
     }
 
     // This is the CTMC simulation code...

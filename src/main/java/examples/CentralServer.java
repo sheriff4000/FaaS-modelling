@@ -35,7 +35,7 @@ public class CentralServer extends Sim {
         cpu.setLink(cpuOutputLink);
         disk1.setLink(new Link(cpu));
         disk2.setLink(new Link(cpu));
-
+        System.out.println("Hello");
         simulate();
 
         Network.logResults();

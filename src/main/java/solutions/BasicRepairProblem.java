@@ -22,7 +22,7 @@ class BasicRepairProblem extends Sim {
         this.mrt = mrt;
         this.term = term;
         for (int i = 0; i < m; i++) {
-            schedule(new Failure(Samplers.exp(mtbf)));
+            schedule(new Failure(Samplers.exp(1.0 / mtbf)));
         }
         simulate();
         System.out.println("Av. working machines = " + acc / now());
@@ -41,7 +41,7 @@ class BasicRepairProblem extends Sim {
             m--;
             n++;
             if (n == 1) {
-                schedule(new Repair(now() + Samplers.exp(mrt)));
+                schedule(new Repair(now() + Samplers.exp(1.0 / mrt)));
             }
         }
     }
@@ -56,9 +56,9 @@ class BasicRepairProblem extends Sim {
             lastChange = now();
             n--;
             m++;
-            schedule(new Failure(now() + Samplers.exp(mtbf)));
+            schedule(new Failure(now() + Samplers.exp(1.0 / mtbf)));
             if (n > 0) {
-                schedule(new Repair(now() + Samplers.exp(mrt)));
+                schedule(new Repair(now() + Samplers.exp(1.0 / mrt)));
             }
         }
     }

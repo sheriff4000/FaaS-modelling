@@ -22,6 +22,7 @@ class MachineRepairTemplate extends Sim {
     // Note: the invoke code can 'see' the simulation state variables
     class E extends Event {
         // Boilerplate to set the event invocation time...
+        // (You can add other event parameters if necessary)
         public E(double t) {
             super(t);
         }

@@ -122,16 +122,26 @@ class FaaS extends Sim {
     }
 
     class request extends Event {
-        // Boilerplate to set the event invocation time...
-        // (You can add other event parameters if necessary)
+        // need to keep track of IDs
         public request(double t) {
             super(t);
         }
 
         public void invoke() {
-            // Insert event code here, which typically updates the state and
-            // measurement variables and schedules zero or more future events, e.g.
-            //something++;
+            //schedule next request
+            // check whether f is in container and available - determines whether request lost (busy = true)
+            // schedule new request
+            schedule(new E(now() + 10.0));
+        }
+    }
+
+    class completion extends Event {
+        public completion(double t) {
+            super(t);
+        }
+
+        public void invoke() {
+            //set busy to false
             schedule(new E(now() + 10.0));
         }
     }
